@@ -1,0 +1,12 @@
+<h2>Welcome, {{ user.username }}</h2>
+<a href="{% url 'logout' %}">Logout</a>
+<h3>Your Stocks</h3>
+<a href="{% url 'add_stock' %}">Add Stock</a>
+<ul>
+    {% for stock in stocks %}
+        <li>{{ stock.name }} - ${{ stock.price }} - {{ stock.date_of_buying }}
+            <a href="{% url 'update_stock' stock.pk %}">Edit</a>
+            <a href="{% url 'delete_stock' stock.pk %}">Delete</a>
+        </li>
+    {% endfor %}
+</ul>
