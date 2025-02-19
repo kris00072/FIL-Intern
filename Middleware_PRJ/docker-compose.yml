@@ -1,4 +1,8 @@
-# version: '3.8'
+version: '3.8'
+
+networks:
+  middleware_prj_network:
+    driver: bridge
 
 services:
   db:
@@ -7,18 +11,20 @@ services:
     environment:
       MYSQL_DATABASE: 'fil'
       MYSQL_ROOT_PASSWORD: 'chessChess2*2*'
-      MYSQL_USER: 'django_user'
+      MYSQL_USER: 'root'  # Ensure root user access
       MYSQL_PASSWORD: 'chessChess2*2*'
     ports:
-      - "3307:3306"  # Changed port to 3307
+      - "3306:3306"  # Use port 3306 to match settings.py
     volumes:
       - mysql_data:/var/lib/mysql
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${MYSQL_ROOT_PASSWORD}"]
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -u root -pchessChess2*2* || exit 1"]
       interval: 10s
       timeout: 5s
       retries: 5
-    platform: linux/x86_64  # Added platform specification
+    platform: linux/x86_64
+    networks:
+      - middleware_prj_network
 
   web:
     build: .
@@ -35,11 +41,13 @@ services:
       db:
         condition: service_healthy
     environment:
-      - DB_HOST=db
-      - DB_NAME=fil
-      - DB_USER=djago_user
-      - DB_PASSWORD=chessChess2*2*
+      - MYSQL_HOST=localhost  # Match settings.py (localhost instead of db)
+      - MYSQL_NAME=fil
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=chessChess2*2*
       - DJANGO_SETTINGS_MODULE=middleware_prj.settings
+    networks:
+      - middleware_prj_network
 
 volumes:
   mysql_data:

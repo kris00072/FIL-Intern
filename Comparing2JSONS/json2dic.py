@@ -4,7 +4,7 @@ class JsonTODic:
         self.json2=json2
 
     def getKeyDifference(self):
-        keys1=set(self.json1.keys())
+        keys1=set(self.json1.keys())dbt
         keys2=set(self.json2.keys())
 
         keys_only_in_json1=keys1-keys2
