@@ -1,0 +1,21 @@
+Employee_ID,Employee_Name,Salary,Date_of_Joining,Department_Name,Department_ID
+101,Amit Sharma,50000,5/12/2018,IT,1
+102,Neha Verma,60000,8/22/2019,HR,2
+103,Rajesh Kumar,75000,11/30/2017,Finance,3
+104,Priya Singh,55000,3/15/2020,Marketing,4
+105,Vikas Yadav,80000,7/18/2016,IT,1
+106,Anjali Mehta,65000,12/10/2019,HR,2
+107,Suresh Raina,72000,6/5/2015,Finance,3
+108,Kavita Nair,58000,9/14/2018,Marketing,4
+109,Manoj Tiwari,90000,2/25/2014,IT,1
+110,Ritu Chauhan,62000,1/19/2021,HR,2
+111,Arjun Kapoor,70000,4/30/2017,Finance,3
+112,Divya Joshi,67000,6/8/2020,Marketing,4
+113,Sahil Khan,73000,10/12/2019,IT,1
+114,Meera Iyer,69000,12/3/2016,HR,2
+115,Rohan Bansal,85000,9/21/2015,Finance,3
+116,Nidhi Sinha,56000,3/7/2022,Marketing,4
+117,Vinay Pathak,78000,7/26/2018,IT,1
+118,Pooja Malhotra,64000,5/17/2019,HR,2
+119,Deepak Saxena,77000,8/30/2016,Finance,3
+120,Swati Pandey,61000,11/25/2021,Marketing,4
